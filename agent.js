@@ -5,7 +5,7 @@ const TOKEN = 'HwJPj3C0EDGeM1IqiZS0ZdNRPuBw8PzN';
 
 async function listProjects() {
   try {
-    const response = await axios.get('https://api.playcanvas.com/projects', {
+    const response = await axios.get('https://playcanvas.com/api/', {
       headers: {
         'Authorization': `Bearer ${TOKEN}`,
         'Accept': 'application/json'
