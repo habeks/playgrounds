@@ -5,24 +5,30 @@ import https from 'https';
 const token = process.env.PLAYCANVAS_API_TOKEN;
 
 const httpsAgent = new https.Agent({
-  rejectUnauthorized: false // needed 4 gptCodex
+  rejectUnauthorized: false
 });
 
 async function listProjects() {
   try {
-    const response = await axios.get('https://playcanvas.com/api/projects', {
+    const response = await axios({
+      method: 'get',
+      url: 'https://playcanvas.com/api/projects',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'application/json'
       },
+      maxRedirects: 0, // 💥 запрет на редиректы
       httpsAgent
     });
 
-    console.log('✅ Projects loaded successfully:\n', response.data);
+    console.log('✅ Response:\n', response.data);
   } catch (error) {
-    console.error('❌ Error while fetching projects:\n', error.message);
+    console.error('❌ Error:\n', error.message);
+
     if (error.response) {
-      console.error('🔁 Redirect or response headers:\n', error.response.headers);
+      console.error('↩️ Response headers:\n', error.response.headers);
+    } else if (error.request) {
+      console.error('🧱 No response received.\n', error.request);
     }
   }
 }
