@@ -11,17 +11,15 @@ const httpsAgent = new https.Agent({
 async function listProjects() {
   try {
     const response = await axios({
-      method: 'get',
-      url: 'https://playcanvas.com/api/projects',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/json',
-        'Host': 'playcanvas.com', // ключевой момент
-        'User-Agent': 'Mozilla/5.0 (NodeAgent)' // может помочь обойти CloudFront
-      },
-      maxRedirects: 0,
-      httpsAgent
-    });
+  method: 'get',
+  url: 'https://api.playcanvas.com/v1/projects',
+  headers: {
+    'Authorization': `Bearer ${token}`,
+    'Accept': 'application/json',
+    'User-Agent': 'Mozilla/5.0 (NodeAgent)'
+  },
+  httpsAgent
+});
 
     console.log('✅ Projects:', response.data);
   } catch (error) {
