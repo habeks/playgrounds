@@ -1,0 +1,22 @@
+{
+  "name": "ar-map-dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  },
+  "features": {},
+  "postCreateCommand": "echo 'Container ready'",
+  "forwardPorts": [],
+  "portsAttributes": {
+    "3000": {
+      "label": "Preview"
+    }
+  }
+}
