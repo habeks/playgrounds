@@ -5,7 +5,7 @@ import https from 'https';
 const token = process.env.PLAYCANVAS_API_TOKEN;
 
 const httpsAgent = new https.Agent({
-  rejectUnauthorized: false // из-за особенностей прокси в Codex
+  rejectUnauthorized: false // needed 4 gptCodex
 });
 
 async function listProjects() {
