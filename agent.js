@@ -2,32 +2,32 @@
 import axios from 'axios';
 import https from 'https';
 
-const token = process.env.PLAYCANVAS_API_TOKEN;
+process.env.HTTP_PROXY = '';
+process.env.HTTPS_PROXY = '';
 
-const httpsAgent = new https.Agent({
-  rejectUnauthorized: false
-});
+const token = 'YOUR_PLAYCANVAS_API_TOKEN'; // подставь сюда
+
+const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 async function listProjects() {
   try {
     const response = await axios({
-  method: 'get',
-  url: 'https://api.playcanvas.com/v1/projects',
-  headers: {
-    'Authorization': `Bearer ${token}`,
-    'Accept': 'application/json',
-    'User-Agent': 'Mozilla/5.0 (NodeAgent)'
-  },
-  maxRedirects: 0,
-  httpsAgent
-});
+      method: 'get',
+      url: 'https://api.playcanvas.com/v1/projects',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (NodeAgent)'
+      },
+      httpsAgent
+    });
 
     console.log('✅ Projects:', response.data);
   } catch (error) {
     console.error('❌ Error:', error.message);
     if (error.response) {
-      console.log('↩️ Status:', error.response.status);
-      console.log('↩️ Headers:', error.response.headers);
+      console.error('↩️ Status:', error.response.status);
+      console.error('↩️ Headers:', error.response.headers);
     }
   }
 }
