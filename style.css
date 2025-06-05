@@ -1,0 +1,75 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  background: #000;
+  color: #0ff;
+}
+
+#ar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#camera-feed {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+#three-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#ui-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 3;
+  color: #fff;
+}
+
+#map {
+  width: 200px;
+  height: 150px;
+  margin-bottom: 10px;
+  border: 2px solid #0ff;
+}
+
+#scan-btn {
+  background: #000;
+  color: #ff0;
+  border: 2px solid #ff0;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#inventory {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border: 1px solid #0ff;
+}
+
+#inventory h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+#item-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 14px;
+}
