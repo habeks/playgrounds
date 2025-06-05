@@ -18,6 +18,7 @@ async function listProjects() {
     'Accept': 'application/json',
     'User-Agent': 'Mozilla/5.0 (NodeAgent)'
   },
+  maxRedirects: 0,
   httpsAgent
 });
 
