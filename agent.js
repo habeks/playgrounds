@@ -15,20 +15,20 @@ async function listProjects() {
       url: 'https://playcanvas.com/api/projects',
       headers: {
         'Authorization': `Bearer ${token}`,
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Host': 'playcanvas.com', // ключевой момент
+        'User-Agent': 'Mozilla/5.0 (NodeAgent)' // может помочь обойти CloudFront
       },
-      maxRedirects: 0, // 💥 запрет на редиректы
+      maxRedirects: 0,
       httpsAgent
     });
 
-    console.log('✅ Response:\n', response.data);
+    console.log('✅ Projects:', response.data);
   } catch (error) {
-    console.error('❌ Error:\n', error.message);
-
+    console.error('❌ Error:', error.message);
     if (error.response) {
-      console.error('↩️ Response headers:\n', error.response.headers);
-    } else if (error.request) {
-      console.error('🧱 No response received.\n', error.request);
+      console.log('↩️ Status:', error.response.status);
+      console.log('↩️ Headers:', error.response.headers);
     }
   }
 }
