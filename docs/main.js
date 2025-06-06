@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+// import * as THREE from 'three';
 
 const video = document.getElementById('camera-feed');
 const canvas = document.getElementById('three-canvas');
