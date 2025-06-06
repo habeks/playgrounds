@@ -1,9 +1,5 @@
 {
   "name": "ar-map-dev",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
   "customizations": {
     "vscode": {
       "settings": {
